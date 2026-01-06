@@ -98,8 +98,6 @@
       hamburger.classList.toggle('is-active', isOpen);
       nav.classList.toggle('is-active', isOpen);
       hamburger.setAttribute('aria-expanded', String(isOpen));
-      // ensure header stays expanded while nav is open
-      if(isOpen){ document.body.classList.remove('header-compact'); }
     }
 
     hamburger.addEventListener('click', () => toggleNav());
@@ -177,13 +175,10 @@
             // keep header expanded while nav panel is open
             if (navPanel && navPanel.classList.contains('is-active')){
               headerEl.classList.remove('header--compact');
-              document.body.classList.remove('header-compact');
             } else if (y > lastY && y > 100) {
               headerEl.classList.add('header--compact');
-              document.body.classList.add('header-compact');
             } else {
               headerEl.classList.remove('header--compact');
-              document.body.classList.remove('header-compact');
             }
             lastY = y;
             ticking = false;
